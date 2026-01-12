@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="박서후 돌잔치 초대장">
     <meta property="og:description" content="박서후의 첫 돌잔치에 여러분을 초대합니다. 귀한 시간 내어 자리를 빛내주시면 큰 기쁨이 되겠습니다.">
-    <meta property="og:image" content="./main.webp">
+    <meta property="og:image" content="./images/main.webp">
     <meta property="og:url" content="https://parkinjong.github.io/Seohoo-Park/">
     <meta property="og:site_name" content="박서후 돌잔치">
 
@@ -21,7 +21,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="박서후 돌잔치 초대장">
     <meta name="twitter:description" content="박서후의 첫 돌잔치에 여러분을 초대합니다. 귀한 시간 내어 자리를 빛내주시면 큰 기쁨이 되겠습니다.">
-    <meta name="twitter:image" content="./main.webp">
+    <meta name="twitter:image" content="./images/main.webp">
 
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Gamja+Flower&family=Poor+Story&display=swap"
         rel="stylesheet">
@@ -419,6 +419,52 @@
             background: rgba(0, 0, 0, 0.7);
         }
 
+        /* 라이트박스 화살표 버튼 */
+        .lightbox-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            z-index: 1001;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            user-select: none;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-arrow:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .lightbox-arrow.left {
+            left: 20px;
+        }
+
+        .lightbox-arrow.right {
+            right: 20px;
+        }
+
+        /* 사진 번호 표시 */
+        .lightbox-counter {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            z-index: 1001;
+        }
+
         @media (max-width: 480px) {
             .main-photo-container {
                 height: 300px;
@@ -434,6 +480,26 @@
                 font-size: 30px;
                 width: 40px;
                 height: 40px;
+            }
+
+            .lightbox-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
+            }
+
+            .lightbox-arrow.left {
+                left: 10px;
+            }
+
+            .lightbox-arrow.right {
+                right: 10px;
+            }
+
+            .lightbox-counter {
+                bottom: 20px;
+                font-size: 12px;
+                padding: 6px 12px;
             }
         }
     </style>
@@ -455,7 +521,7 @@
                 <!-- 아기 사진 -->
                 <div class="main-photo-container" onclick="openLightbox(this)">
                     <!-- 여기에 메인 사진 추가: <img src="메인사진.jpg" alt="아기 사진"> -->
-                    <img src="./main.webp" alt="아기 사진">
+                    <img src="./images/main.webp" alt="아기 사진">
                 </div>
 
                 <!-- 아기 상세 정보 -->
@@ -500,15 +566,15 @@
 
             <!-- 작은 사진 갤러리 -->
             <div class="photo-gallery">
-                <div class="photo-item" onclick="openLightbox(this)"><img src="./001.webp" alt="사진 1"></div>
-                <div class="photo-item" onclick="openLightbox(this)"><img src="./002.webp" alt="사진 2"></div>
-                <div class="photo-item" onclick="openLightbox(this)"><img src="./003.webp" alt="사진 3"></div>
-                <div class="photo-item" onclick="openLightbox(this)"><img src="./004.webp" alt="사진 4"></div>
-                <div class="photo-item" onclick="openLightbox(this)"><img src="./005.webp" alt="사진 5"></div>
-                <div class="photo-item" onclick="openLightbox(this)"><img src="./006.webp" alt="사진 6"></div>
-                <div class="photo-item" onclick="openLightbox(this)"><img src="./007.webp" alt="사진 7"></div>
-                <div class="photo-item" onclick="openLightbox(this)"><img src="./008.webp" alt="사진 8"></div>
-                <div class="photo-item" onclick="openLightbox(this)"><img src="./009.webp" alt="사진 9"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./images/001.webp" alt="사진 1"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./images/002.webp" alt="사진 2"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./images/003.webp" alt="사진 3"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./images/004.webp" alt="사진 4"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./images/005.webp" alt="사진 5"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./images/006.webp" alt="사진 6"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./images/007.webp" alt="사진 7"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./images/008.webp" alt="사진 8"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./images/009.webp" alt="사진 9"></div>
             </div>
 
             <div class="divider-line"></div>
@@ -570,6 +636,9 @@
     <!-- 라이트박스 모달 -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <div class="lightbox-close" onclick="closeLightbox()">×</div>
+        <div class="lightbox-arrow left" onclick="event.stopPropagation(); prevPhoto()">‹</div>
+        <div class="lightbox-arrow right" onclick="event.stopPropagation(); nextPhoto()">›</div>
+        <div class="lightbox-counter" id="lightbox-counter">1 / 10</div>
         <div class="lightbox-content" onclick="event.stopPropagation()">
             <img id="lightbox-img" src="" alt="확대 사진">
         </div>
@@ -579,16 +648,60 @@
     <div class="copy-tooltip" id="copyTooltip"></div>
 
     <script>
+        // 모든 사진 배열 (메인 사진 + 갤러리 사진)
+        const photos = [
+            './images/main.webp',
+            './images/001.webp',
+            './images/002.webp',
+            './images/003.webp',
+            './images/004.webp',
+            './images/005.webp',
+            './images/006.webp',
+            './images/007.webp',
+            './images/008.webp',
+            './images/009.webp'
+        ];
+        let currentPhotoIndex = 0;
+
         // 라이트박스 열기
         function openLightbox(element) {
             const img = element.querySelector('img');
             if (img) {
+                // 현재 클릭한 사진의 인덱스 찾기
+                currentPhotoIndex = photos.indexOf(img.src.split('/').pop());
+                if (currentPhotoIndex === -1) {
+                    // 파일명으로 찾기
+                    const filename = img.src.split('/').pop();
+                    currentPhotoIndex = photos.findIndex(photo => photo.includes(filename));
+                }
+                if (currentPhotoIndex === -1) currentPhotoIndex = 0;
+
+                showPhoto(currentPhotoIndex);
                 const lightbox = document.getElementById('lightbox');
-                const lightboxImg = document.getElementById('lightbox-img');
-                lightboxImg.src = img.src;
                 lightbox.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
+        }
+
+        // 사진 표시
+        function showPhoto(index) {
+            const lightboxImg = document.getElementById('lightbox-img');
+            const counter = document.getElementById('lightbox-counter');
+            lightboxImg.src = photos[index];
+            counter.textContent = `${index + 1} / ${photos.length}`;
+            currentPhotoIndex = index;
+        }
+
+        // 다음 사진
+        function nextPhoto() {
+            currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+            showPhoto(currentPhotoIndex);
+        }
+
+        // 이전 사진
+        function prevPhoto() {
+            currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+            showPhoto(currentPhotoIndex);
         }
 
         // 라이트박스 닫기
@@ -598,12 +711,49 @@
             document.body.style.overflow = 'auto';
         }
 
-        // ESC 키로 라이트박스 닫기
+        // 키보드 이벤트 처리
         document.addEventListener('keydown', function (e) {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('active')) return;
+
             if (e.key === 'Escape') {
                 closeLightbox();
+            } else if (e.key === 'ArrowRight') {
+                nextPhoto();
+            } else if (e.key === 'ArrowLeft') {
+                prevPhoto();
             }
         });
+
+        // 터치 이벤트 처리 (스와이프)
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const lightbox = document.getElementById('lightbox');
+
+        lightbox.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        lightbox.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const swipeThreshold = 50; // 최소 스와이프 거리
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // 왼쪽으로 스와이프 -> 다음 사진
+                    nextPhoto();
+                } else {
+                    // 오른쪽으로 스와이프 -> 이전 사진
+                    prevPhoto();
+                }
+            }
+        }
 
         // 전화번호 복사
         function copyPhoneNumber(phoneNumber, name) {
