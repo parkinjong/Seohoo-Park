@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박서후 돌잔치 초대장</title>
+
+    <!-- 기본 메타 정보 -->
+    <meta name="description" content="박서후의 첫 돌잔치에 여러분을 초대합니다. 귀한 시간 내어 자리를 빛내주시면 큰 기쁨이 되겠습니다.">
+
+    <!-- Open Graph / 카카오톡 미리보기 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="박서후 돌잔치 초대장">
+    <meta property="og:description" content="박서후의 첫 돌잔치에 여러분을 초대합니다. 귀한 시간 내어 자리를 빛내주시면 큰 기쁨이 되겠습니다.">
+    <meta property="og:image" content="./main.webp">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="박서후 돌잔치">
+
+    <!-- 트위터 카드 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="박서후 돌잔치 초대장">
+    <meta name="twitter:description" content="박서후의 첫 돌잔치에 여러분을 초대합니다. 귀한 시간 내어 자리를 빛내주시면 큰 기쁨이 되겠습니다.">
+    <meta name="twitter:image" content="./main.webp">
+
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Gamja+Flower&family=Poor+Story&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Jua', sans-serif;
+            background: #fff8f0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .invitation-card {
+            background: white;
+            max-width: 480px;
+            width: 100%;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        /* 메인 사진 영역 */
+        .main-photo-section {
+            position: relative;
+            background: white;
+            padding: 50px 20px 30px;
+            text-align: center;
+        }
+
+        .invitation-title {
+            font-family: 'Gamja Flower', cursive;
+            font-size: 18px;
+            color: #999;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .main-photo-container {
+            margin: 0 auto 20px;
+            width: 100%;
+            max-width: 350px;
+            height: 350px;
+            overflow: hidden;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .main-photo-container:hover {
+            transform: scale(1.02);
+        }
+
+        .main-photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+
+        /* 본문 */
+        .content {
+            padding: 40px 20px;
+            background: white;
+        }
+
+        .baby-info {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .baby-name {
+            font-family: 'Jua', sans-serif;
+            font-size: 36px;
+            color: #333;
+            margin: 15px 0 25px;
+        }
+
+        .baby-intro {
+            font-family: 'Poor Story', cursive;
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+
+        /* 아기 사진 */
+        .baby-photo {
+            margin: 30px auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .baby-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .baby-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .baby-photo::before {
+            content: '아기 사진';
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* 아기 상세 정보 */
+        .baby-details {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .baby-detail-item {
+            text-align: center;
+        }
+
+        .baby-detail-item .detail-label {
+            font-family: 'Gamja Flower', cursive;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .baby-detail-item .detail-value {
+            font-family: 'Jua', sans-serif;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 50px 0;
+            color: #ddd;
+        }
+
+        .divider-line {
+            height: 1px;
+            background: #f0f0f0;
+            margin: 50px auto;
+            width: 80%;
+        }
+
+        /* 부모님 전화번호 */
+        .parent-contact {
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.2s ease;
+        }
+
+        .parent-contact:hover {
+            background: #f5f5f5;
+        }
+
+        .parent-contact:active {
+            background: #e8e8e8;
+        }
+
+        /* 복사 알림 툴팁 */
+        .copy-tooltip {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 14px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 2000;
+        }
+
+        .copy-tooltip.show {
+            opacity: 1;
+        }
+
+        /* 작은 사진 갤러리 */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 40px 0;
+        }
+
+        .photo-item {
+            aspect-ratio: 1;
+            background: #f5f5f5;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            font-size: 12px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-item:hover {
+            opacity: 0.8;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 행사 정보 */
+        .event-details {
+            background: white;
+            padding: 30px 0;
+            margin: 40px 0;
+        }
+
+        .detail-item {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .detail-item .icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .detail-item .label {
+            font-family: 'Gamja Flower', cursive;
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .detail-item .value {
+            font-family: 'Jua', sans-serif;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .detail-item .value strong {
+            color: #333;
+            font-size: 17px;
+        }
+
+        /* 지도 버튼 */
+        .map-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .map-button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Jua', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .map-button.naver {
+            background: #03C75A;
+            color: white;
+        }
+
+        .map-button.naver:hover {
+            background: #02B350;
+            transform: translateY(-2px);
+        }
+
+        .map-button.kakao {
+            background: #FEE500;
+            color: #3C1E1E;
+        }
+
+        .map-button.kakao:hover {
+            background: #F7DC00;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 480px) {
+            .map-buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .map-button {
+                width: 100%;
+                max-width: 250px;
+                margin: 0 auto;
+            }
+        }
+
+        /* 부모님 정보 */
+        .parents-info {
+            text-align: center;
+            margin: 50px 0;
+            padding: 30px 20px;
+        }
+
+        .parents-info p {
+            font-family: 'Poor Story', cursive;
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* 푸터 */
+        .footer {
+            text-align: center;
+            padding: 20px 20px 80px 20px;
+            background: white;
+            color: #999;
+            font-family: 'Poor Story', cursive;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* 라이트박스 모달 */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            z-index: 1001;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        @media (max-width: 480px) {
+            .main-photo-container {
+                height: 300px;
+            }
+
+            .baby-name {
+                font-size: 32px;
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invitation-card">
+        <!-- 메인 사진 영역 -->
+        <div class="main-photo-section">
+            <h1 class="invitation-title">FIRST BIRTHDAY</h1>
+        </div>
+
+        <!-- 본문 -->
+        <div class="content">
+            <!-- 아기 정보 -->
+            <div class="baby-info">
+                <div class="baby-name">[ 박 서 후 ]</div>
+
+                <!-- 아기 사진 -->
+                <div class="main-photo-container" onclick="openLightbox(this)">
+                    <!-- 여기에 메인 사진 추가: <img src="메인사진.jpg" alt="아기 사진"> -->
+                    <img src="./main.webp" alt="아기 사진">
+                </div>
+
+                <!-- 아기 상세 정보 -->
+                <div class="baby-details">
+                    <div class="baby-detail-item">
+                        <div class="detail-label">출생일</div>
+                        <div class="detail-value">2025.00.00</div>
+                    </div>
+                    <div class="baby-detail-item">
+                        <div class="detail-label">키</div>
+                        <div class="detail-value">00 cm</div>
+                    </div>
+                    <div class="baby-detail-item">
+                        <div class="detail-label">몸무게</div>
+                        <div class="detail-value">00 kg</div>
+                    </div>
+                </div>
+                <!-- 부모님 정보 -->
+                <div class="parents-info">
+                    <p>
+                        아빠
+                        <span class="parent-contact" onclick="copyPhoneNumber('010-7107-1447', '박병준(서후아빠))')">
+                            <strong>[ 박병준 ]</strong>
+                        </span>
+                        · 엄마
+                        <span class="parent-contact" onclick="copyPhoneNumber('010-0000-0000', '김태희(서후엄마)')">
+                            <strong>[ 김태희 ]</strong>
+                        </span><br>
+
+                    </p>
+                </div>
+                <p class="baby-intro">
+                    저희 부부에게 찾아온 소중한 선물이<br>
+                    벌써 첫 돌을 맞이하게 되었습니다<br>
+                    <br>
+                    귀한 시간 내어 자리를 빛내주시면<br>
+                    큰 기쁨이 되겠습니다
+                </p>
+            </div>
+
+            <div class="divider-line"></div>
+
+            <!-- 작은 사진 갤러리 -->
+            <div class="photo-gallery">
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./001.webp" alt="사진 1"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./002.webp" alt="사진 2"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./003.webp" alt="사진 3"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./004.webp" alt="사진 4"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./005.webp" alt="사진 5"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./006.webp" alt="사진 6"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./007.webp" alt="사진 7"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./008.webp" alt="사진 8"></div>
+                <div class="photo-item" onclick="openLightbox(this)"><img src="./009.webp" alt="사진 9"></div>
+            </div>
+
+            <div class="divider-line"></div>
+
+            <!-- 행사 정보 -->
+            <div class="event-details">
+                <div class="detail-item">
+                    <div class="icon">📅</div>
+                    <div class="label">DATE</div>
+                    <div class="value">2026년 0월 00일 (요일)</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="icon">🕐</div>
+                    <div class="label">TIME</div>
+                    <div class="value">오후 0시 00분</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="icon">📍</div>
+                    <div class="label">PLACE</div>
+                    <div class="value">
+                        <strong>[ 상호명 ]</strong><br>
+                        [ 주소 ]<br>
+                        [ 층/호 정보 ]
+                    </div>
+                    <div class="map-buttons">
+                        <a href="https://map.naver.com" target="_blank" class="map-button naver">
+                            네이버맵 바로가기
+                        </a>
+                        <a href="https://map.kakao.com" target="_blank" class="map-button kakao">
+                            카카오맵 바로가기
+                        </a>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="icon">📞</div>
+                    <div class="label">CONTACT</div>
+                    <div class="value">박병준: 010-7107-1447</div>
+                    <div class="value">김태희: 010-7107-1447</div>
+                </div>
+            </div>
+
+            <div class="divider-line"></div>
+
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="footer">
+            <p>
+                소중한 분들을 모시고자 하오니<br>
+                부디 참석하시어 자리를 빛내주시기 바랍니다
+            </p>
+        </div>
+    </div>
+
+    <!-- 라이트박스 모달 -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close" onclick="closeLightbox()">×</div>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="확대 사진">
+        </div>
+    </div>
+
+    <!-- 복사 알림 툴팁 -->
+    <div class="copy-tooltip" id="copyTooltip"></div>
+
+    <script>
+        // 라이트박스 열기
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            if (img) {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // 라이트박스 닫기
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // ESC 키로 라이트박스 닫기
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // 전화번호 복사
+        function copyPhoneNumber(phoneNumber, name) {
+            // 클립보드에 복사
+            navigator.clipboard.writeText(phoneNumber).then(function () {
+                showTooltip(`${name} 전화번호가 복사되었습니다`);
+            }).catch(function (err) {
+                // 구형 브라우저 호환성
+                const textArea = document.createElement('textarea');
+                textArea.value = phoneNumber;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showTooltip(`${name} 전화번호가 복사되었습니다`);
+                } catch (err) {
+                    alert('전화번호 복사에 실패했습니다: ' + phoneNumber);
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+
+        // 툴팁 표시
+        function showTooltip(message) {
+            const tooltip = document.getElementById('copyTooltip');
+            tooltip.textContent = message;
+            tooltip.classList.add('show');
+
+            setTimeout(function () {
+                tooltip.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
